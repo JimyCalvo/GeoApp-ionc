@@ -13,7 +13,7 @@
           </ion-title>
         </ion-col>
         <ion-col size="3" class="ion-text-end">
-          <ion-button (click)="setOpen(true)">
+          <ion-button class="ajusteBoton" (click)="setOpen(true)">
             <ion-icon class="ajuste" name="construct-sharp"></ion-icon>
           </ion-button>
         </ion-col>
@@ -72,9 +72,21 @@
       <ion-button size="small" (click)="clearWatch()">Clear Watch</ion-button>
     </div>
     <hr>
-    <ion-toolbar>
-      <ion-title>Custom Toolbar</ion-title>
-    </ion-toolbar>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-text>
+          <hr>
+          <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
+            <a href="https://github.com/JimyCalvo">Jimy Calvo</a>.
+          </p>
+        </ion-text>
+        <hr>
+        <ion-text class="ion-text-center" >
+          <a href="https://github.com/JimyCalvo/GeoApp-ionc"><ion-icon name="logo-github"></ion-icon> GitHub</a>
+        </ion-text>
+      </ion-toolbar>
+    </ion-footer>
+    
   </div>
   <ion-action-sheet [isOpen]="isActionSheetOpen" header="Geolocation Permissions" [buttons]="actionSheetButtons"
     (didDismiss)="setOpen(false)"></ion-action-sheet>
