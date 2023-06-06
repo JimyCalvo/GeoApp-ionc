@@ -1,20 +1,82 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-grid>
+      <ion-row push-md class="ion-align-items-center">
+        <ion-col size="3">
+          <ion-avatar>
+            <img src="../assets/icon/icon.png" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="6" class="ion-text-center">
+          <ion-title>
+            GeoApp
+          </ion-title>
+        </ion-col>
+        <ion-col size="3" class="ion-text-end">
+          <ion-button (click)="setOpen(true)">
+            <ion-icon class="ajuste" name="construct-sharp"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+
+<ion-content>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <hr><hr>
+    <div class="containerCard">
+      <ion-card>
+        <ion-icon class="navimg" name="navigate-outline"></ion-icon>
+        <ion-card-header>
+          <ion-button size="small" (click)="getCurrentCoordinate()">
+            View Current Location
+          </ion-button>
+        </ion-card-header>
+        <ion-card-content>
+          Latitude: {{coordinate?.latitude }}
+          <hr>
+          Longitude:{{ coordinate?.longitude }}
+        </ion-card-content>
+        <ion-button size="small"  *ngIf="coordinate?.latitude" href="https://maps.google.com/?q={{coordinate?.latitude }},{{coordinate?.longitude}}&z=14" >
+          <ion-icon class="ion-padding" name="search-outline" ></ion-icon>   Search
+        </ion-button>
+        <hr>
+      </ion-card>
+
+    </div>
+    <hr>
+    <hr>
+    <div class="containerCard">
+      <ion-card>
+        <ion-icon class="navimg" name="location-outline"></ion-icon>
+        <ion-card-header>
+          <ion-button size="small" (click)="watchPosition()">
+            Watch Position
+          </ion-button>
+        </ion-card-header>
+        <ion-card-content>
+          Latitude: {{watchCoordinate?.latitude  }}
+          <hr>
+          Longitude:{{ watchCoordinate?.longitude}}
+        </ion-card-content>
+        <ion-button size="small"  *ngIf="watchCoordinate?.latitude" href="https://maps.google.com/?q={{watchCoordinate?.latitude}},{{watchCoordinate?.longitude}}&z=14" >
+          <ion-icon class="ion-padding" name="search-outline" ></ion-icon>   Search
+        </ion-button>
+        <hr>
+      </ion-card>
+      <ion-button size="small" (click)="clearWatch()">Clear Watch</ion-button>
+    </div>
+    <hr>
+    <ion-toolbar>
+      <ion-title>Custom Toolbar</ion-title>
+    </ion-toolbar>
   </div>
+  <ion-action-sheet [isOpen]="isActionSheetOpen" header="Geolocation Permissions" [buttons]="actionSheetButtons"
+    (didDismiss)="setOpen(false)"></ion-action-sheet>
 </ion-content>
+

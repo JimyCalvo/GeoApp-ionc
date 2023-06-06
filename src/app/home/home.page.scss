@@ -1,17 +1,45 @@
 #container {
-  text-align: center;
-
-  position: absolute;
+  height: 100vh;
   left: 0;
   right: 0;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(0%);
+  text-align: center;
+  background-image: url(./imgs/fondo.svg);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;	
+
+  
 }
 
 #container strong {
   font-size: 20px;
   line-height: 26px;
 }
+ion-avatar{
+  margin-left: 20px;
+  height: 6vh;
+  width: 6vh;
+}
+ion-card{
+  background-color: rgba(0, 0, 0, 0.541);
+  color: aliceblue;
+}
+
+.ajuste {
+  margin-right: 20px;
+  font-size: 5vh;
+}
+
+.containerCard{
+  margin: 30px;
+}
+.navimg{
+  padding: 15px;
+  font-size: 15vh;
+}
+
 
 #container p {
   font-size: 16px;
@@ -24,4 +52,11 @@
 
 #container a {
   text-decoration: none;
+
 }
+ion-toolbar{
+  background-color: black;
+  color: rgb(253, 253, 253);
+}
+
+
